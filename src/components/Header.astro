@@ -1,21 +1,51 @@
 <section class="w-full relative text-white h-screen">
-    <div class="overlay absolute inset-0 z-10">
-        <div class="w-full h-screen bg-[url('/images/header-bg.jpg')] bg-cover bg-center">
-            <div class="w-full h-full" style="background: linear-gradient(to right, #1E1E1E 35%, transparent 100%);"></div>
-        </div>
+  <!-- Overlay que da el degradado encima de la imagen -->
+  <div class="absolute inset-0 z-10">
+    <div
+      class="w-full h-screen bg-[url('/images/header-bg.jpg')] bg-cover bg-center no-repeat"
+    >
+      <div
+        class="w-full h-full"
+        style="background: linear-gradient(to right, #1E1E1E 35%, transparent 100%);"
+      >
+      </div>
     </div>
-    <img src="/images/Logo.png" alt="Metal Fusion Logo" class="relative top-4 left-4 z-20 w-16 h-16">
+  </div>
+  <!-- Barra de navegación y el logo -->
+  <div
+    class="flex flex-row items-center justify-evenly w-full absolute z-50"
+  >
+    <img
+      src="/MetalFusionFavicon.svg"
+      alt="Metal Fusion Logo"
+      class="static top-4 left-4 z-20 w-32"
+    />
     <nav class="relative z-20 w-xs">
-        <ul class="flex flex-row justify-between items-center">
-            <li>Inicio</li>
-            <li>Nosotros</li>
-            <li>Visitanos</li>
-        </ul>
+      <ul class="flex flex-row justify-between items-center font-semibold">
+        <li><a class="" href="#">Inicio</a></li>
+        <li><a class="" href="#">Nosotros</a></li>
+        <li><a class="" href="#">Visitanos</a></li>
+      </ul>
     </nav>
-    <div class="header-info relative z-20 w-xl">
-        <h1 class="text-8xl font-bold">Metal<br><span class="text-red-500">Fusion</span></h1>
-        <p class="text-lg">Fuerza y calidad en cada pieza</p>
-        <p class="text-gray-200 text-justify tracking-tight">En nuestra tienda encontrarás herramientas de calidad, materiales de construcción duraderos y el asesoramiento experto que necesitas para llevar tus proyectos al siguiente nivel.</p>
-        <button class="rounded-full w-30 p-2 text-sm bg-amber-50 text-black font-semibold">Visitanos</button>
+  </div>
+  <!-- Info del header -->
+  <div class="relative w-full z-20 flex flex-col h-screen justify-center p-10 gap-10">
+    <div>
+        <h1 class="text-9xl font-bold text-justify">
+        Metal<br /><span class="text-red-500">Fusion</span>
+        </h1>
+        <p class="text-xl text-justify pl-2">Fuerza y calidad en cada pieza</p>
     </div>
+    <div class="w-xl pl-2 leading-8" id="">
+      <p class="text-gray-200 text-justify ">
+        En nuestra tienda encontrarás herramientas de calidad, materiales de
+        construcción duraderos y el asesoramiento experto que necesitas para
+        llevar tus proyectos al siguiente nivel.
+      </p>
+      <button
+        class="rounded-full w-35 p-2 text-sm bg-amber-50 text-black font-semibold mt-5 pointer cursor-pointer hover:bg-red-500/90 hover:text-white transition duration-300 ease-in-out"
+        >Visitanos</button
+      >
+    </div>
+  </div>
 </section>
