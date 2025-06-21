@@ -1,20 +1,31 @@
+---
+const imagenes = [
+  "/images/header-bg.jpg",
+  "/images/header-bg2.jpg",
+  "/images/header-bg3.jpg",
+];
+---
+
 <section class="w-full relative text-white h-screen">
   <!-- Overlay que da el degradado encima de la imagen -->
   <div class="absolute inset-0 z-10">
-    <div
-      class="w-full h-screen bg-[url('/images/header-bg.jpg')] bg-cover bg-center no-repeat"
-    >
+    <div id="header-bg-wrapper" class="w-full h-screen relative overflow-hidden">
       <div
-        class="w-full h-full"
-        style="background: linear-gradient(to right, #1E1E1E 35%, transparent 100%);"
-      >
-      </div>
+        id="header-bg-current"
+        class="absolute inset-0 w-full h-full bg-cover bg-center no-repeat transition-transform duration-700"
+        style="background-image: url('/images/header-bg.jpg'); z-index: 1; transform: translateX(0);"
+      ></div>
+      <div
+        id="header-bg-next"
+        class="absolute inset-0 w-full h-full bg-cover bg-center no-repeat transition-transform duration-700"
+        style="z-index: 2; transform: translateX(100%);"
+      ></div>
+      <!-- Overlay degradado separado para que no se anime -->
+      <div class="absolute inset-0 w-full h-full pointer-events-none" style="background: linear-gradient(to right, #1E1E1E 35%, transparent 100%); z-index: 3;"></div>
     </div>
   </div>
   <!-- Barra de navegación y el logo -->
-  <div
-    class="flex flex-row items-center justify-evenly w-full absolute z-50"
-  >
+  <div class="flex flex-row items-center justify-evenly w-full absolute z-50">
     <img
       src="/MetalFusionFavicon.svg"
       alt="Metal Fusion Logo"
@@ -29,15 +40,17 @@
     </nav>
   </div>
   <!-- Info del header -->
-  <div class="relative w-full z-20 flex flex-col h-screen justify-center p-10 gap-10">
+  <div
+    class="relative w-full z-20 flex flex-col h-screen justify-center p-10 gap-10"
+  >
     <div>
-        <h1 class="text-9xl font-bold text-justify">
+      <h1 class="text-9xl font-bold text-justify">
         Metal<br /><span class="text-red-500">Fusion</span>
-        </h1>
-        <p class="text-xl text-justify pl-2">Fuerza y calidad en cada pieza</p>
+      </h1>
+      <p class="text-xl text-justify pl-2">Fuerza y calidad en cada pieza</p>
     </div>
     <div class="w-xl pl-2 leading-8" id="">
-      <p class="text-gray-200 text-justify ">
+      <p class="text-gray-200 text-justify">
         En nuestra tienda encontrarás herramientas de calidad, materiales de
         construcción duraderos y el asesoramiento experto que necesitas para
         llevar tus proyectos al siguiente nivel.
@@ -48,4 +61,44 @@
       >
     </div>
   </div>
+  <script>
+    const imagenes = [
+      "/images/header-bg.jpg",
+      "/images/header-bg2.jpg",
+      "/images/header-bg3.jpg",
+    ];
+    let currentIndex = 0;
+    let showingCurrent = true;
+    const bgCurrent = document.getElementById("header-bg-current");
+    const bgNext = document.getElementById("header-bg-next");
+    if (!bgCurrent || !bgNext) {
+      console.error("No se encontraron los divs de fondo para el slide.");
+    } else {
+      // Inicializa z-index
+      bgCurrent.style.zIndex = '2';
+      bgNext.style.zIndex = '1';
+      setInterval(() => {
+        const nextIndex = (currentIndex + 1) % imagenes.length;
+        const inDiv = showingCurrent ? bgNext : bgCurrent;
+        const outDiv = showingCurrent ? bgCurrent : bgNext;
+        // Prepara el siguiente fondo fuera de pantalla y detrás
+        inDiv.style.backgroundImage = `url('${imagenes[nextIndex]}')`;
+        inDiv.style.transform = "translateX(100%)";
+        inDiv.style.zIndex = '3';
+        outDiv.style.zIndex = '2';
+        void inDiv.offsetWidth;
+        // Anima: el fondo actual sale a la izquierda, el nuevo entra desde la derecha
+        outDiv.style.transform = "translateX(-100%)";
+        inDiv.style.transform = "translateX(0)";
+        setTimeout(() => {
+          // El div que salió se oculta detrás y se resetea
+          outDiv.style.transform = "translateX(100%)";
+          outDiv.style.zIndex = '1';
+          inDiv.style.zIndex = '2';
+          currentIndex = nextIndex;
+          showingCurrent = !showingCurrent;
+        }, 700);
+      }, 5000);
+    }
+  </script>
 </section>
