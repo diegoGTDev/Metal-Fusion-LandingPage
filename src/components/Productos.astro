@@ -1,0 +1,44 @@
+---
+import Card from "./Card.astro"
+
+const productos = [
+    {
+        title: "Herramientas de mano",
+        description: "Llaves, destornilladores, alicates y más herramientas manuales de calidad profesional.",
+        imageUrl: "/images/herramientas-de-mano.jpg"
+    },
+    {
+        title: "Herramientas eléctricas",
+        description: "Taladros, sierras, amoladoras y más herramientas eléctricas para tus proyectos más exigentes.",
+        imageUrl: "/images/herramientas-electricas.jpg"
+    },
+    {
+        title: "Materiales de construcción",
+        description: "Cemento, ladrillos, varillas y todo lo necesario para tus obras y construcciones.",
+        imageUrl: "/images/materiales-construccion.jpg"
+    },
+    {
+        title: "Pintura y suministros",
+        description: "Pinturas, brochas, rodillos y todo lo que necesitas para dar color a tus proyectos.",
+        imageUrl: "/images/pintura-y-suministros.jpg"
+    }
+]
+---
+
+<section id="productos" class="bg-[#EFEFEF] h-screen p-16">
+  <div class="flex flex-col items-center justify-center">
+    <h2 class="text-5xl font-bold mb-4 text-[#CC0000]">Nuestros Productos</h2>
+    <p class="text-lg text-gray-600 mb-8">
+      Explora nuestra inmensa selección de herramientas, materiales e insumos
+      para todos tus proyectos
+    </p>
+  </div>
+  <div class="flex flex-row items-center justify-evenly gap-4 p-4">
+  <!-- Aca iran las cards -->
+   {productos.map(card => (
+     <Card title={card.title} description={card.description} imageUrl={card.imageUrl} />
+   ))}
+  <div>
+    
+  </div>
+</section>

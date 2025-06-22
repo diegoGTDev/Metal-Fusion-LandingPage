@@ -1,0 +1,23 @@
+---
+import FacebookIcon from "./Icons/FacebookIcon.astro";
+import InstagramIcon from "./Icons/InstagramIcon.astro";
+
+// Obtener año actual
+const currentYear = new Date().getFullYear();
+---
+<footer class="flex flex-row items-center justify-evenly bg-[#000] text-white p-4 relative">
+    <div class="flex flex-row items-center justify-center gap-4">
+        <img src="/public/MetalFusionFavicon.svg" class="w-24" alt="">
+        <p class="text-sm">© {currentYear} Metal Fusion</p>
+    </div>
+    <ul class="flex flex-row justify-between  items-center gap-6">
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Nosotros</a></li>
+        <li><a href="#">Visitanos</a></li>
+    </ul>
+    <div id="redes-sociales" class="flex flex-row items-center justify-center gap-4">
+        <a class="hover:scale-110 transition-transform" href="https://www.facebook.com/profile.php?id=61564890875846" target="_blank" rel="noopener noreferrer"><FacebookIcon class="size-6"/></a>
+        <a class="hover:scale-110 transition-transform" href="https://www.instagram.com/metal_fusiongt/" target="_blank" rel="noopener noreferrer"><InstagramIcon class="size-6"/></a>
+    </div>
+    <p class="text-sm absolute right-0 p-2 bottom-0 z-20">Desarrollado por <a href="https://noesis-dev.netlify.app" class="hover:underline text-gray-800 bg-white rounded-2xl p-1">Noesis</a></p>
+</footer>
