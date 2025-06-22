@@ -1,0 +1,49 @@
+
+---
+const contactos = [
+    {
+        icon: "📍",
+        title: "Dirección",
+        description: "123 Calle Principal, Ciudad, País"
+    },
+    {
+        icon: "📞",
+        title: "Teléfono",
+        description: "+1 234 567 890"
+    },
+    {
+        icon: "✉️",
+        title: "Correo Electrónico",
+        description: "contacto@tienda.com"
+    },
+    {
+        icon: "🌐",
+        title: "Horario",
+        description: "Lunes a Viernes: 9am - 6pm, Sábado: 10am - 4pm, Domingo: Cerrado"
+    }
+]
+---
+<section id="visitanos" class="flex flex-row h-screen w-full">
+    <!-- Aca va el titulo e info -->
+    <div class="flex flex-col items-center justify-center w-1/2 p-10 bg-gray-100 text-gray-800 gap-4">
+        <h2 class="text-6xl text-[#C00000] font-bold">Visita nuestra tienda</h2>
+        <p>Visitenos personalmente para obtener la mejor selección y asesoramiento experto. Estamos aqui para ayudarte con todas sus necesidades de hardware</p>
+        <div>
+            <ul>
+                {contactos.map(contacto => (
+                    <li class="flex flex-row items-center gap-4 p-2 border-b border-gray-300">
+                        <span>{contacto.icon}</span>
+                        <div>
+                            <p class="font-semibold">{contacto.title}</p>
+                            <p>{contacto.description}</p>
+                        </div>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    </div>
+    <!-- Aca ira el mapa -->
+     <div>
+        <img class="inset-0 w-full h-full object-cover" src="/images/Local.png" alt="">
+     </div>
+</section>
