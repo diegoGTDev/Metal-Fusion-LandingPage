@@ -1,0 +1,41 @@
+
+---
+import UserIcon from './Icons/UserIcon.astro';
+import CheckIcon from './Icons/CheckIcon.astro';
+import StarIcon from './Icons/StarIcon.astro';
+---
+
+<section class="bg-white py20 px-5 text-center">
+  <div class="max-w-screen-lg mx-auto">
+    <h2 class="text-4xl font-bold mb-4 text-[#CC0000]">¿Por qué elegir Metal Fusion?</h2>
+    <p class="text-lg text-gray-600 mb-8">Somos más que una ferretería, somos tus socios en cada proyecto.</p>
+  </div>
+  <div class="cards-container">
+    <!-- Tarjeta 1: Personal experto -->
+    <div class="bg-red-600 text-white p-8 rounded-2xl max-w-sm flex flex-col items-center shadow-lg transform transition-transform duration-300 hover:-translate-y-2">
+      <div class="icon-wrapper">
+        <UserIcon />
+      </div>
+      <h3>Personal experto</h3>
+      <p>Nuestro equipo de expertos tiene décadas de experiencia combinada y siempre está listo para ayudarlo con sus proyectos.</p>
+    </div>
+
+    <!-- Tarjeta 2: Productos de calidad -->
+    <div class="card card-dark">
+      <div class="icon-wrapper">
+        <CheckIcon />
+      </div>
+      <h3>Productos de calidad</h3>
+      <p>Disponemos únicamente de las mejores marcas y herramientas y materiales de la más alta calidad para obtener resultados duraderos.</p>
+    </div>
+
+    <!-- Tarjeta 3: Servicio local -->
+    <div class="card card-red">
+      <div class="icon-wrapper">
+        <StarIcon />
+      </div>
+      <h3>Servicio local</h3>
+      <p>De propiedad y gestión familiar, estamos comprometidos a servir a nuestra comunidad con atención personalizada.</p>
+    </div>
+  </div>
+</section>
