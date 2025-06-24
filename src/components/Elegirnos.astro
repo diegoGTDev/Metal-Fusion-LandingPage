@@ -5,37 +5,37 @@ import CheckIcon from './Icons/CheckIcon.astro';
 import StarIcon from './Icons/StarIcon.astro';
 ---
 
-<section class="bg-white py20 px-5 text-center">
+<section class="bg-white py20 px-5 text-center py-25">
   <div class="max-w-screen-lg mx-auto">
-    <h2 class="text-4xl font-bold mb-4 text-[#CC0000]">¿Por qué elegir Metal Fusion?</h2>
-    <p class="text-lg text-gray-600 mb-8">Somos más que una ferretería, somos tus socios en cada proyecto.</p>
+    <h2 class="text-5xl font-bold mb-4 text-[#CC0000] pb-10">¿Por qué elegir Metal Fusion?</h2>
+    <p class="text-lg text-gray-600 mb-8 ">Somos más que una ferretería, somos tus socios en cada proyecto.</p>
   </div>
-  <div class="cards-container">
+  <div class="cards-container flex flex-col md:flex-row gap-8 justify-center ab">
     <!-- Tarjeta 1: Personal experto -->
-    <div class="bg-red-600 text-white p-8 rounded-2xl max-w-sm flex flex-col items-center shadow-lg transform transition-transform duration-300 hover:-translate-y-2">
-      <div class="icon-wrapper">
+    <div class="bg-red-600 text-white p-8 rounded-2xl max-w-sm flex flex-col items-center shadow-lg transform transition-transform duration-300 hover:-translate-y-2 bg-gradient-to-b from-red-500 to-red-900 ">
+      <div class="w-24 h-24 rounded-full bg-white flex items-center justify-center mb-4 text-red-600">
         <UserIcon />
       </div>
-      <h3>Personal experto</h3>
-      <p>Nuestro equipo de expertos tiene décadas de experiencia combinada y siempre está listo para ayudarlo con sus proyectos.</p>
+      <h3 class="text-2xl font-bold mb-2">Personal experto</h3>
+      <p class="text-base leading-relaxed opacity-90">Nuestro equipo de expertos tiene décadas de experiencia combinada y siempre está listo para ayudarlo con sus proyectos.</p>
     </div>
 
     <!-- Tarjeta 2: Productos de calidad -->
-    <div class="card card-dark">
-      <div class="icon-wrapper">
+    <div class="bg-gray-900 text-white p-8 rounded-2xl max-w-sm flex flex-col items-center shadow-xl transform transition-transform duration-300 scale-105 hover:-translate-y-2 bg-gradient-to-b from-gray-600 to-gray-900">
+      <div class="w-24 h-24 rounded-full bg-white flex items-center justify-center mb-4 text-gray-900">
         <CheckIcon />
       </div>
-      <h3>Productos de calidad</h3>
-      <p>Disponemos únicamente de las mejores marcas y herramientas y materiales de la más alta calidad para obtener resultados duraderos.</p>
+      <h3 class="text-2xl font-bold mb-2">Productos de calidad</h3>
+      <p class="text-base leading-relaxed opacity-90">Disponemos únicamente de las mejores marcas y herramientas y materiales de la más alta calidad para obtener resultados duraderos.</p>
     </div>
 
     <!-- Tarjeta 3: Servicio local -->
-    <div class="card card-red">
-      <div class="icon-wrapper">
+    <div class="bg-red-600 text-white p-8 rounded-2xl max-w-sm flex flex-col items-center shadow-lg transform transition-transform duration-300 hover:-translate-y-2 bg-gradient-to-b from-red-500 to-red-900">
+      <div class="w-24 h-24 rounded-full bg-white flex items-center justify-center mb-4 text-red-600">
         <StarIcon />
       </div>
-      <h3>Servicio local</h3>
-      <p>De propiedad y gestión familiar, estamos comprometidos a servir a nuestra comunidad con atención personalizada.</p>
+      <h3 class="text-2xl font-bold mb-2">Servicio local</h3>
+      <p class="text-base leading-relaxed opacity-90">De propiedad y gestión familiar, estamos comprometidos a servir a nuestra comunidad con atención personalizada.</p>
     </div>
   </div>
 </section>
