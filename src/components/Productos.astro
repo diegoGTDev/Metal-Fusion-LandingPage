@@ -25,20 +25,20 @@ const productos = [
 ]
 ---
 
-<section id="productos" class="bg-[#EFEFEF] h-screen p-16">
-  <div class="flex flex-col items-center justify-center">
-    <h2 class="text-5xl font-bold mb-4 text-[#CC0000]">Nuestros Productos</h2>
+<section id="productos" class="bg-[#EFEFEF] flex flex-row min-h-screen ">
+  <!-- Texto e informacion -->
+  <div class="flex flex-col items-center justify-center w-1/3 p-10">
+    <h2 class="text-6xl font-bold mb-4 text-[#CC0000]">Nuestros Productos</h2>
     <p class="text-lg text-gray-600 mb-8">
       Explora nuestra inmensa selección de herramientas, materiales e insumos
       para todos tus proyectos
     </p>
   </div>
-  <div class="flex flex-row items-center justify-evenly gap-4 p-4">
+  <!-- Imagenes de los productos -->
+  <div class="flex flex-row items-stretch justify-evenly h-screen w-fit overflow-auto">
   <!-- Aca iran las cards -->
    {productos.map(card => (
      <Card title={card.title} description={card.description} imageUrl={card.imageUrl} />
    ))}
-  <div>
-    
   </div>
 </section>
