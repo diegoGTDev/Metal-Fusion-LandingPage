@@ -1,0 +1,20 @@
+---
+const items = [
+  { name: "Inicio", href: "#inicio" },
+  { name: "Nosotros", href: "#nosotros" },
+  { name: "Productos", href: "#productos" },
+  { name: "Visítanos", href: "#visitanos" },
+];
+
+const { className } = Astro.props;
+---
+
+<nav class={className}>
+  <ul class="flex flex-row justify-between items-center font-semibold gap-10">
+    {items.map((item) => (
+      <li class="hover:text-red-500 transition-colors duration-300">
+        <a href={item.href}>{item.name}</a>
+      </li>
+    ))}
+  </ul>
+</nav>

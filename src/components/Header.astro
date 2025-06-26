@@ -1,4 +1,6 @@
 ---
+import NavMenu from "./NavMenu.astro";
+
 const imagenes = [
   "/images/header-bg.jpg",
   "/images/header-bg2.jpg",
@@ -31,13 +33,8 @@ const imagenes = [
       alt="Metal Fusion Logo"
       class="static top-4 left-4 z-20 w-32"
     />
-    <nav class="relative z-20 w-xs">
-      <ul class="flex flex-row justify-between items-center font-semibold">
-        <li><a class="" href="#inicio">Inicio</a></li>
-        <li><a class="" href="#nosotros">Nosotros</a></li>
-        <li><a class="" href="#visitanos">Visitanos</a></li>
-      </ul>
-    </nav>
+    <NavMenu className="relative z-20 w-xs">
+    </NavMenu>
   </div>
   <!-- Info del header -->
   <header

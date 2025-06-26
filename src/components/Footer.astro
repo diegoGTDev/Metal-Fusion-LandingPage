@@ -1,6 +1,7 @@
 ---
 import FacebookIcon from "./Icons/FacebookIcon.astro";
 import InstagramIcon from "./Icons/InstagramIcon.astro";
+import NavMenu from "./NavMenu.astro";
 
 // Obtener año actual
 const currentYear = new Date().getFullYear();
@@ -10,11 +11,7 @@ const currentYear = new Date().getFullYear();
         <img src="/public/MetalFusionFavicon.svg" class="w-24" alt="">
         <p class="text-sm">© {currentYear} Metal Fusion</p>
     </div>
-    <ul class="flex flex-row justify-between  items-center gap-6">
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Nosotros</a></li>
-        <li><a href="#">Visitanos</a></li>
-    </ul>
+    <NavMenu className="w-xs" />
     <div id="redes-sociales" class="flex flex-row items-center justify-center gap-4">
         <a class="hover:scale-110 transition-transform" href="https://www.facebook.com/profile.php?id=61564890875846" target="_blank" rel="noopener noreferrer"><FacebookIcon class="size-6"/></a>
         <a class="hover:scale-110 transition-transform" href="https://www.instagram.com/metal_fusiongt/" target="_blank" rel="noopener noreferrer"><InstagramIcon class="size-6"/></a>
