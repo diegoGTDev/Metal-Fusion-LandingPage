@@ -28,19 +28,19 @@ const contactos = [
     }
 ]
 ---
-<section id="visitanos" class="flex flex-row w-full h-screen">
+<section id="visitanos" class="flex lg:flex-row flex-col w-full h-fit">
     <!-- Aca va el titulo e info -->
-    <div class="flex flex-col justify-center w-1/2 p-10 bg-gray-100 text-gray-800 gap-4 text-justify">
-        <h2 class="text-6xl text-[#C00000] font-bold text-justify">Visita nuestra tienda</h2>
-        <p class="text-lg w-xl">Visitenos personalmente para obtener la mejor selección y asesoramiento experto. Estamos aqui para ayudarte con todas sus necesidades de hardware</p>
+    <div class="flex flex-col justify-center lg:w-1/2 w-full p-4 pt-10 sm:p-6 lg:p-10 bg-gray-100 text-gray-800 gap-4">
+        <h2 class="lg:text-4xl xl:text-6xl text-2xl sm:text-3xl text-[#C00000] font-bold text-center leading-tight">Visita nuestra tienda</h2>
+        <p class="text-sm lg:text-lg w-full max-w-2xl text-justify">Visitenos personalmente para obtener la mejor selección y asesoramiento experto. Estamos aqui para ayudarte con todas sus necesidades de hardware</p>
         <div class="mt-6">
-            <ul class="list-none flex flex-col gap-5">
+            <ul class="list-none flex flex-col gap-3 sm:gap-5">
                 {contactos.map(contacto => (
-                    <li class="flex flex-row items-center gap-4 p-2text-justify">
-                        <span>{<contacto.icon class="text-gray-500"/>}</span>
-                        <div>
-                            <p class="font-semibold">{contacto.title}</p>
-                            <p>{contacto.description}</p>
+                    <li class="flex flex-row items-start sm:items-center gap-3 sm:gap-4 p-1 sm:p-2 text-justify">
+                        <span class="flex-shrink-0 mt-1 sm:mt-0">{<contacto.icon class="text-gray-700 size-6 sm:size-8"/>}</span>
+                        <div class="min-w-0 flex-1">
+                            <p class="font-semibold text-sm sm:text-base">{contacto.title}</p>
+                            <p class="text-xs sm:text-sm break-words">{contacto.description}</p>
                         </div>
                     </li>
                 ))}
@@ -48,8 +48,8 @@ const contactos = [
         </div>
     </div>
     <!-- Aca ira el mapa -->
-     <div class="relative  w-1/2 overflow-hidden">
-         <iframe class="w-full h-full" src="https://www.google.com/maps/embed?pb=!1m25!1m12!1m3!1d483.2650377334901!2d-90.78814521395758!3d14.304442143179509!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m10!3e6!4m4!1s0x85891d745d2d09e3%3A0x4d936e3bb8c91389!3m2!1d14.3044368!2d-90.78789069999999!4m3!3m2!1d14.3044668!2d-90.7878187!5e0!3m2!1sen!2sgt!4v1750830960686!5m2!1sen!2sgt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+     <div class="2xl:w-full lg:w-1/2 w-full h-96 sm:h-[500px] lg:h-screen">
+         <iframe class="h-full w-full" src="https://www.google.com/maps/embed?pb=!1m25!1m12!1m3!1d483.2650377334901!2d-90.78814521395758!3d14.304442143179509!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m10!3e6!4m4!1s0x85891d745d2d09e3%3A0x4d936e3bb8c91389!3m2!1d14.3044368!2d-90.78789069999999!4m3!3m2!1d14.3044668!2d-90.7878187!5e0!3m2!1sen!2sgt!4v1750830960686!5m2!1sen!2sgt" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         <!-- <img class="inset-0 w-full object-cover" src="/images/Local.png" alt=""> -->
      </div>
 </section>
