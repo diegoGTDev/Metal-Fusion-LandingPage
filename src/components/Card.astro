@@ -6,7 +6,7 @@ interface props {
 }
 ---
 
-<div class="w-100 h-full bg-white shadow-xl relative min-h-full">
+<div class="w-full h-50 lg:h-full lg:w-100 bg-white shadow-xl relative min-h-full">
   <!-- Aca ira la imagen -->
   <div class="w-full h-full overflow-hidden">
     <img src={Astro.props.imageUrl} class="w-full h-full object-cover" />
@@ -14,7 +14,7 @@ interface props {
   <!-- Aca se mostrara la info del card -->
   <div
     id="info"
-    class="text-center p-5 absolute inset-0 z-20 flex items-center justify-center opacity-0 transition-opacity duration-300 hover:opacity-100 hover:bg-black/50"
+    class="text-center p-5 absolute inset-0 z-20 flex items-center justify-center lg:opacity-0 transition-opacity duration-300 hover:opacity-100 lg:hover:bg-black/50 bg-black/50"
   >
     <div class="flex flex-col items-center justify-center text-white">
       <h3 class="font-bold text-2xl">{Astro.props.title}</h3>
@@ -24,15 +24,3 @@ interface props {
     </div>
   </div>
 </div>
-<script is:inline>
-  //Funcionalidad para que al pasar el mouse por encima de la imagen se muestre la info del card
-  //   const cardInfo = document.getElementById("info");
-  //   cardInfo.classList.add("opacity-0");
-  //   card.addEventListener("mouseover", () => {
-  //     cardInfo.classList.remove("opacity-0");
-  //   });
-  //   card.addEventListener("mouseout", () => {
-  //     cardInfo.classList.add("opacity-0");
-  //   });
-  //
-</script>

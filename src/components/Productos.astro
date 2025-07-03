@@ -5,37 +5,37 @@ const productos = [
     {
         title: "Herramientas de mano",
         description: "Llaves, destornilladores, alicates y más herramientas manuales de calidad profesional.",
-        imageUrl: "/images/herramientas-de-mano.jpg"
+        imageUrl: "/images/herramientas-de-mano.webp"
     },
     {
         title: "Herramientas eléctricas",
         description: "Taladros, sierras, amoladoras y más herramientas eléctricas para tus proyectos más exigentes.",
-        imageUrl: "/images/herramientas-electricas.jpg"
+        imageUrl: "/images/herramientas-electricas.webp"
     },
     {
         title: "Materiales de construcción",
         description: "Cemento, ladrillos, varillas y todo lo necesario para tus obras y construcciones.",
-        imageUrl: "/images/materiales-construccion.jpg"
+        imageUrl: "/images/materiales-construccion.webp"
     },
     {
         title: "Pintura y suministros",
         description: "Pinturas, brochas, rodillos y todo lo que necesitas para dar color a tus proyectos.",
-        imageUrl: "/images/pintura-y-suministros.jpg"
+        imageUrl: "/images/pintura-y-suministros.webp"
     }
 ]
 ---
 
-<section id="productos" class="bg-[#EFEFEF] flex flex-row min-h-screen ">
+<section id="productos" class="bg-[#EFEFEF] flex flex-col lg:flex-row min-h-screen ">
   <!-- Texto e informacion -->
-  <div class="flex flex-col items-center justify-center w-1/3 p-10">
-    <h2 class="text-6xl font-bold mb-4 text-[#CC0000]">Nuestros Productos</h2>
-    <p class="text-lg text-gray-600 mb-8">
+  <div class="flex flex-col items-center justify-center lg:w-1/3 w-full lg:p-10 p-4 ">
+    <h2 class="lg:text-6xl text-5xl text-center lg:text-justify font-bold mb-4 text-[#CC0000]">Nuestros Productos</h2>
+    <p class="lg:text-lg text-sm text-justify text-gray-600 mb-8">
       Explora nuestra inmensa selección de herramientas, materiales e insumos
       para todos tus proyectos
     </p>
   </div>
   <!-- Imagenes de los productos -->
-  <div class="flex flex-row items-stretch justify-evenly h-screen w-fit overflow-auto">
+  <div class="flex lg:flex-row flex-col lg:items-stretch lg:justify-evenly items-stretch justify-evenly lg:h-screen lg:w-fit w-full h-fit  lg:overflow-auto">
   <!-- Aca iran las cards -->
    {productos.map(card => (
      <Card title={card.title} description={card.description} imageUrl={card.imageUrl} />
