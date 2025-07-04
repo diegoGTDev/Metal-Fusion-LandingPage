@@ -1,0 +1,37 @@
+---
+import NavList from "./NavList.astro";
+---
+
+<div class="flex flex-row items-center lg:justify-between  justify-between w-full p-4 pb-0 pt-0 sticky top-0 z-50 bg-[#1E1E1E] ">
+    <img
+      src="/MetalFusionFavicon.svg"
+      alt="Metal Fusion Logo"
+      class="z-20 w-12 sm:w-14 md:w-14 lg:w-20 xl:w-24"
+    />
+    
+    <!-- Desktop Navigation -->
+    <div class="hidden md:block text-white md:text-sm">
+      <NavList className="relative z-20" />
+    </div>
+
+    <!-- Mobile Hamburger Button -->
+    <button 
+      id="mobile-menu-toggle"
+      class="md:hidden relative z-50 flex flex-col justify-center items-center w-8 h-8 space-y-1.5"
+      aria-label="Toggle mobile menu"
+    >
+      <span class="block w-6 h-0.5 bg-white transition-all duration-300 ease-in-out hamburger-line-1"></span>
+      <span class="block w-6 h-0.5 bg-white transition-all duration-300 ease-in-out hamburger-line-2"></span>
+      <span class="block w-6 h-0.5 bg-white transition-all duration-300 ease-in-out hamburger-line-3"></span>
+    </button>
+
+    <!-- Mobile Navigation Menu -->
+    <div 
+      id="mobile-menu"
+      class="md:hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-40 opacity-0 pointer-events-none transition-all duration-300 ease-in-out"
+    >
+      <div class="flex flex-col items-center justify-center h-full space-y-8 text-white">
+        <NavList className="text-center mobile-nav" isMobile={true} />
+      </div>
+    </div>
+  </div>

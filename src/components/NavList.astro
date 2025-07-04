@@ -1,0 +1,25 @@
+---
+const items = [
+  { name: "Inicio", href: "#inicio" },
+  { name: "Nosotros", href: "#nosotros" },
+  { name: "Productos", href: "#productos" },
+  { name: "Visítanos", href: "#visitanos" },
+];
+
+const { className, classUl, isMobile = false } = Astro.props;
+---
+
+<nav class={className}>
+  <ul class={`flex font-semibold ${isMobile ? 'flex-col items-center gap-8 text-2xl' : 'flex-row justify-between items-center gap-10'} ${classUl}`}>
+    {items.map((item) => (
+      <li class="hover:text-red-500 transition-colors duration-300">
+        <a 
+          href={item.href}
+          class={`block ${isMobile ? 'py-2 text-center' : ''} mobile-menu-link`}
+        >
+          {item.name}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>

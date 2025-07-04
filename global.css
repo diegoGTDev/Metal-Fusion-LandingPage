@@ -1,5 +1,41 @@
 @import "tailwindcss";
+
 html{
     scroll-behavior: smooth;
     font: 100%/1.5 "Montserrat", sans-serif;
+}
+
+/* Mobile Menu Animations */
+@media (max-width: 768px) {
+  .mobile-menu-link {
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.4s ease-out forwards;
+  }
+  
+  .mobile-menu-link:nth-child(1) { animation-delay: 0.1s; }
+  .mobile-menu-link:nth-child(2) { animation-delay: 0.2s; }
+  .mobile-menu-link:nth-child(3) { animation-delay: 0.3s; }
+  .mobile-menu-link:nth-child(4) { animation-delay: 0.4s; }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hamburger Menu Button Hover Effect */
+#mobile-menu-toggle:hover .hamburger-line-1,
+#mobile-menu-toggle:hover .hamburger-line-2,
+#mobile-menu-toggle:hover .hamburger-line-3 {
+  background-color: #ef4444; /* red-500 */
+}
+
+/* Smooth backdrop blur animation */
+#mobile-menu {
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 }
