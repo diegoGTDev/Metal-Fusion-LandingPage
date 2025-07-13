@@ -1,4 +1,5 @@
 ---
+
 const imagenes = [
   "/images/header-bg.jpg",
   "/images/header-bg2.jpg",
@@ -6,61 +7,64 @@ const imagenes = [
 ];
 ---
 
-<section class="w-full relative text-white h-screen">
+<section class="w-full relative text-white h-dvh">
   <!-- Overlay que da el degradado encima de la imagen -->
   <div class="absolute inset-0 z-10">
-    <div id="header-bg-wrapper" class="w-full h-screen relative overflow-hidden">
+    <div id="header-bg-wrapper" class="w-full h-full relative overflow-hidden">
       <div
         id="header-bg-current"
         class="absolute inset-0 w-full h-full bg-cover bg-center no-repeat transition-transform duration-700"
         style="background-image: url('/images/header-bg.jpg'); z-index: 1; transform: translateX(0);"
-      ></div>
+      >
+      </div>
       <div
         id="header-bg-next"
         class="absolute inset-0 w-full h-full bg-cover bg-center no-repeat transition-transform duration-700"
         style="z-index: 2; transform: translateX(100%);"
-      ></div>
+      >
+      </div>
       <!-- Overlay degradado separado para que no se anime -->
-      <div class="absolute inset-0 w-full h-full pointer-events-none" style="background: linear-gradient(to right, #1E1E1E 35%, transparent 100%); z-index: 3;"></div>
+      <div
+        class="absolute inset-0 w-full h-full pointer-events-none lg:bg-gradient-to-r bg-gradient-to-t from-[#1E1E1E] from-35% to-transparent to-100% z-[3]"
+      >
+      </div>
     </div>
   </div>
   <!-- Barra de navegación y el logo -->
-  <div class="flex flex-row items-center justify-evenly w-full absolute z-50">
-    <img
-      src="/MetalFusionFavicon.svg"
-      alt="Metal Fusion Logo"
-      class="static top-4 left-4 z-20 w-32"
-    />
-    <nav class="relative z-20 w-xs">
-      <ul class="flex flex-row justify-between items-center font-semibold">
-        <li><a class="" href="#">Inicio</a></li>
-        <li><a class="" href="#">Nosotros</a></li>
-        <li><a class="" href="#">Visitanos</a></li>
-      </ul>
-    </nav>
-  </div>
+
   <!-- Info del header -->
-  <div
-    class="relative w-full z-20 flex flex-col h-screen justify-center p-10 gap-10"
+  <header
+    id="inicio"
+    class="relative w-full z-20 flex flex-col h-full md:justify-center justify-center lg:items-baseline items-center p-4 pt-50 pb-10 lg:p-10 lg:gap-10 gap-5"
   >
     <div>
-      <h1 class="text-9xl font-bold text-justify">
+      <h1 class="lg:text-9xl text-5xl font-bold lg:text-justify text-center">
         Metal<br /><span class="text-[#DB3232]">Fusion</span>
       </h1>
-      <p class="text-xl text-justify pl-2">Fuerza y calidad en cada pieza</p>
+      <p class="lg:text-xl text-sm md:text-justify text-center pl-2">
+        Fuerza y calidad en cada pieza
+      </p>
     </div>
-    <div class="w-xl pl-2 leading-8" id="">
-      <p class="text-gray-200 text-justify">
+    <div
+      class="lg:w-xl w-full pl-2 leading-8 flex flex-col justify-center lg:items-baseline items-center mb-4 lg:mb-0"
+      id=""
+    >
+      <!-- Texto completo para desktop -->
+      <p class="hidden md:block text-gray-200 md:text-lg text-sm text-justify">
         En nuestra tienda encontrarás herramientas de calidad, materiales de
         construcción duraderos y el asesoramiento experto que necesitas para
         llevar tus proyectos al siguiente nivel.
       </p>
-      <button
-        class="rounded-full w-35 p-2 text-sm bg-amber-50 text-black font-semibold mt-5 pointer cursor-pointer hover:bg-red-500/90 hover:text-white transition duration-300 ease-in-out"
-        >Visitanos</button
-      >
+      <!-- Texto breve para mobile -->
+      <p class="md:hidden text-gray-200 text-sm text-center">
+        Herramientas de calidad y materiales duraderos para tus proyectos.
+      </p>
+      <a
+      href="#visitanos"
+        class="rounded-full w-35 p-2 text-sm text-center bg-amber-50 text-black font-semibold mt-5 pointer cursor-pointer hover:bg-red-500/90 hover:text-white transition duration-300 ease-in-out"
+        >Visitanos</a>
     </div>
-  </div>
+  </header>
   <script>
     const imagenes = [
       "/images/header-bg.jpg",
@@ -75,8 +79,8 @@ const imagenes = [
       console.error("No se encontraron los divs de fondo para el slide.");
     } else {
       // Inicializa z-index
-      bgCurrent.style.zIndex = '2';
-      bgNext.style.zIndex = '1';
+      bgCurrent.style.zIndex = "2";
+      bgNext.style.zIndex = "1";
       setInterval(() => {
         const nextIndex = (currentIndex + 1) % imagenes.length;
         const inDiv = showingCurrent ? bgNext : bgCurrent;
@@ -84,8 +88,8 @@ const imagenes = [
         // Prepara el siguiente fondo fuera de pantalla y detrás
         inDiv.style.backgroundImage = `url('${imagenes[nextIndex]}')`;
         inDiv.style.transform = "translateX(100%)";
-        inDiv.style.zIndex = '3';
-        outDiv.style.zIndex = '2';
+        inDiv.style.zIndex = "3";
+        outDiv.style.zIndex = "2";
         inDiv.offsetWidth;
         // Anima: el fondo actual sale a la izquierda, el nuevo entra desde la derecha
         outDiv.style.transform = "translateX(-100%)";
@@ -93,12 +97,137 @@ const imagenes = [
         setTimeout(() => {
           // El div que salió se oculta detrás y se resetea
           outDiv.style.transform = "translateX(100%)";
-          outDiv.style.zIndex = '1';
-          inDiv.style.zIndex = '2';
+          outDiv.style.zIndex = "1";
+          inDiv.style.zIndex = "2";
           currentIndex = nextIndex;
           showingCurrent = !showingCurrent;
         }, 700);
       }, 5000);
     }
+
+    // Mobile Menu Toggle Functionality
+    const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileMenuLinks = document.querySelectorAll(".mobile-menu-link");
+
+    let isMenuOpen = false;
+
+    // Toggle menu function
+    function toggleMobileMenu() {
+      if (!mobileMenu) return;
+
+      isMenuOpen = !isMenuOpen;
+
+      if (isMenuOpen) {
+        // Open menu
+        mobileMenu.classList.remove("opacity-0", "pointer-events-none");
+        mobileMenu.classList.add("opacity-100", "pointer-events-auto");
+
+        // Transform hamburger to X
+        const line1 = document.querySelector(
+          ".hamburger-line-1"
+        ) as HTMLElement;
+        const line2 = document.querySelector(
+          ".hamburger-line-2"
+        ) as HTMLElement;
+        const line3 = document.querySelector(
+          ".hamburger-line-3"
+        ) as HTMLElement;
+
+        if (line1) line1.style.transform = "rotate(45deg) translate(5px, 5px)";
+        if (line2) line2.style.opacity = "0";
+        if (line3)
+          line3.style.transform = "rotate(-45deg) translate(7px, -6px)";
+
+        // Prevent body scroll
+        document.body.style.overflow = "hidden";
+      } else {
+        // Close menu
+        mobileMenu.classList.add("opacity-0", "pointer-events-none");
+        mobileMenu.classList.remove("opacity-100", "pointer-events-auto");
+
+        // Reset hamburger lines
+        const line1 = document.querySelector(
+          ".hamburger-line-1"
+        ) as HTMLElement;
+        const line2 = document.querySelector(
+          ".hamburger-line-2"
+        ) as HTMLElement;
+        const line3 = document.querySelector(
+          ".hamburger-line-3"
+        ) as HTMLElement;
+
+        if (line1) line1.style.transform = "rotate(0) translate(0, 0)";
+        if (line2) line2.style.opacity = "1";
+        if (line3) line3.style.transform = "rotate(0) translate(0, 0)";
+
+        // Restore body scroll
+        document.body.style.overflow = "";
+      }
+    }
+
+    // Add click event to toggle button
+    if (mobileMenuToggle) {
+      mobileMenuToggle.addEventListener("click", toggleMobileMenu);
+    }
+
+    // Close menu when clicking on menu links
+    mobileMenuLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (isMenuOpen) {
+          toggleMobileMenu();
+        }
+      });
+    });
+
+    // Close menu when clicking outside (on the backdrop)
+    if (mobileMenu) {
+      mobileMenu.addEventListener("click", (e) => {
+        if (e.target === mobileMenu) {
+          toggleMobileMenu();
+        }
+      });
+    }
+
+    // Close menu on escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && isMenuOpen) {
+        toggleMobileMenu();
+      }
+    });
+
+    // Mobile viewport height fix
+    function setMobileVH() {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    }
+
+    // Set initial mobile viewport height
+    setMobileVH();
+
+    // Re-calculate on resize and orientation change
+    window.addEventListener("resize", setMobileVH);
+    window.addEventListener("orientationchange", () => {
+      setTimeout(setMobileVH, 100);
+    });
   </script>
+
+  <style>
+    /* Mobile viewport height fix */
+    @media (max-width: 768px) {
+      section {
+        height: calc(var(--vh, 1vh) * 100) !important;
+        min-height: calc(var(--vh, 1vh) * 100);
+      }
+
+      #header-bg-wrapper {
+        height: calc(var(--vh, 1vh) * 100) !important;
+      }
+
+      header {
+        height: calc(var(--vh, 1vh) * 100) !important;
+        min-height: calc(var(--vh, 1vh) * 100);
+      }
+    }
+  </style>
 </section>
