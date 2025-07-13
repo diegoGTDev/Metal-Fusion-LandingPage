@@ -4,7 +4,11 @@ html{
     scroll-behavior: smooth;
     font: 100%/1.5 "Montserrat", sans-serif;
 }
-
+@media (max-width: 375px){
+  html, body{
+    scroll-padding-top: 46px;
+  }
+}
 /* Mobile Menu Animations */
 @media (max-width: 768px) {
   .mobile-menu-link {
