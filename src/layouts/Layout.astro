@@ -14,7 +14,7 @@ import "../styles/global.css";
     />
     <meta
       name="description"
-      content="Constructora, Insumos Ferretero, Taller de soluciones"
+      content="Metal Fusion es tu ferretería y taller de soluciones en Guatemala. Ofrecemos herramientas, materiales de construcción y asesoría experta para llevar tus proyectos al siguiente nivel. Calidad, confianza y servicio personalizado."
     />
     <meta property="og:title" content="Metal Fusion" />
     <meta
@@ -27,11 +27,13 @@ import "../styles/global.css";
     />
     <meta property="og:image:width" content="400" />
     <meta property="og:image:height" content="300" />
-    <meta property="og:url" content="https://metal-fusion.com" />
+    <meta property="og:url" content="https://metal-fusion-gt.com" />
     <meta property="og:type" content="website" />
+    <meta name="robots" content="index, follow" />
 
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="canonical" href="https://metal-fusion-gt.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <meta name="color-scheme" content="light" />
     <link
@@ -39,6 +41,26 @@ import "../styles/global.css";
       rel="stylesheet"
     />
     <title>Metal Fusion - Fuerza y calidad en cada pieza</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HardwareStore",
+        "name": "Metal Fusion",
+        "image": "https://metal-fusion-gt.com/images/Logo.jpg",
+        "url": "https://metal-fusion-gt.com",
+        "telephone": "+502 5777-4270",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Dirección de tu tienda",
+          "addressLocality": "Ciudad",
+          "addressRegion": "Guatemala",
+          "postalCode": "01000",
+          "addressCountry": "GT"
+        },
+        "description": "Ferretería y taller de soluciones en Guatemala Escuintla. Herramientas, materiales de construcción y asesoría experta para tus proyectos.",
+        
+      }
+    </script>
   </head>
   <body>
     <slot />
