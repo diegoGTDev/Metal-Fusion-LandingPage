@@ -1,0 +1,32 @@
+---
+const { title, imageUrl } = Astro.props;
+---
+
+<article class="relative w-full overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 rounded-2xl group bg-white/60 backdrop-blur-sm border border-transparent hover:border-[#FF0A0E]/20">
+  <div class="relative p-4 sm:p-6 h-full">
+  <div class="flex flex-col md:flex-row h-full justify-start items-center md:items-start gap-4">
+      <!-- Image / visual -->
+      <figure class="flex-shrink-0 w-40 md:w-44 h-40 md:h-44 bg-white rounded-xl p-3 flex items-center justify-center shadow-sm">
+        <img
+          src={imageUrl ?? '/MetalFusionFavicon.svg'}
+          alt={title ? `${title} logo` : 'Metal Fusion'}
+          class="w-full h-full object-contain rounded-lg"
+          loading="lazy"
+        />
+      </figure>
+
+      <!-- Content -->
+      <div class="flex-1 min-w-0">
+        <h3 class="text-xl md:text-2xl lg:text-3xl font-extrabold text-[#111827] leading-tight mb-1 ">
+          {title}
+        </h3>
+
+        <p class="text-sm md:text-base text-[#4b5563] mb-3 ">
+          <slot />
+        </p>
+
+        <!-- CTAs removed as requested -->
+      </div>
+    </div>
+  </div>
+</article>
