@@ -1,0 +1,48 @@
+---
+// No necesitamos imports de React ni componentes
+import TrabajandoCard from "./TrabajandoCard.astro";
+---
+
+<section
+  id="empresas"
+  class="w-full min-h-screen py-20 md:py-24 px-4 bg-gradient-to-b from-white via-gray-200/20 to-white flex flex-col justify-center align-center"
+>
+  <div class="max-w-6xl mx-auto w-full">
+    <!-- Header -->
+    <div class="text-center mb-8 md:mb-16 mt-8 md:mt-0">
+      <h2
+        class="text-3xl md:text-5xl lg:text-6xl font-bold text-[#292929] mb-4"
+      >
+        Empresas que{" "}
+        <span class="text-[#FF0A0E] underline decoration-[#BD6669] decoration-4"
+          >confían</span
+        > en nosotros
+      </h2>
+      <p class="text-lg md:text-xl text-[#545454] max-w-3xl mx-auto">
+        Trabajamos con las empresas más reconocidas, ofreciendo soluciones de
+        calidad excepcional
+      </p>
+    </div>
+    <!-- Wrapper for the empresas card: stacked on mobile, grid on md+ -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-stretch">
+      <TrabajandoCard title="Remesa" imageUrl="/images/remesa-letras-logo.png">
+        Somos <span class="text-[#FF0A0E]">exportadores</span> oficiales, respaldando
+        cada proyecto con <span class="text-[#BD6669]">profesionalismo</span> y <span
+          class="text-[#FF0A0E]">compromiso</span
+        > total para garantizar la máxima <span class="text-[#BD6669]"
+          >calidad</span
+        > y <span class="text-[#FF0A0E]">confianza</span>.
+      </TrabajandoCard>
+
+      <TrabajandoCard
+        title="All Solar Guatemala "
+        imageUrl="/images/all-solar-logo.png"
+      >
+        <span class="text-[#FF0A0E]">Aliados estratégicos</span> en energía renovable,
+        proporcionando <span class="text-[#BD6669]">materiales</span> y
+        <span class="text-[#FF0A0E]">soporte técnico</span> para proyectos solares
+        de <span class="text-[#BD6669]">alto impacto</span> en Guatemala.
+      </TrabajandoCard>
+    </div>
+  </div>
+</section>
