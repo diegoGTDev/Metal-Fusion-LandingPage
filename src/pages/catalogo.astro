@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CatalogSection from '../components/CatalogSection.astro';
+
+
+const laminas = [
+	{
+	title: 'Lámina fría',
+	imageUrl: '/images/lamina-fria.svg',
+		description: 'Lámina de acero que ha sido laminada en frío, es decir, procesada a temperatura ambiente para lograr una mayor precisión dimensional.',
+		specs: {
+			espesor: '0.30 mm - 1.00 mm',
+			medidas: ['0.90 m x 1.83 m', '1.00 m x 2.00 m'],
+			descripcionCorta: 'Acabado liso, tratamiento anticorrosivo.'
+		}
+	},
+	{
+		title: 'Lámina negra',
+		imageUrl: '/images/lamina-negra.svg',
+		description: 'La lámina negra es acero laminado en caliente, de color oscuro por la oxidación superficial, y es ideal para aplicaciones donde no se requiere un acabado estético, pero sí resistencia estructural y bajo costo',
+		specs: {
+			espesor: '1.00 mm - 6.00 mm',
+			medidas: ['1.22 m x 2.44 m', '1.22 m x 3.05 m']
+		}
+	},
+	{
+		title: 'Lámina labrada',
+		imageUrl: '/images/lamina-labrada.svg',
+		description: ' La lámina labrada es una lámina negra con relieves (dibujo en alto relieve), generalmente en forma de diamante o lágrima, que proporciona mayor adherencia antideslizante y estética industrial.',
+		specs: {
+			espesor: '1.20 mm - 4.00 mm',
+			medidas: ['1.00 m x 2.00 m'],
+			descripcionCorta: 'Ideal para zonas con tráfico peatonal o vehicular.'
+		}
+	}
+];
+
+const tuberias = [
+	{
+		title: 'Tubería galvanizada',
+		imageUrl: '/images/tuberia-galv.svg',
+		description: 'Tubería para conducción y estructuras, resistente a la corrosión.',
+		specs: { espesor: '1.5 mm - 8 mm', medidas: ['1/2"', '3/4"', '1"', '2"'] }
+	},
+	{
+		title: 'Tubería PVC',
+		imageUrl: '/images/tuberia-pvc.svg',
+		description: 'Tubería para agua y desagüe, fácil instalación.',
+		specs: { espesor: 'N/A', medidas: ['40 mm', '50 mm', '75 mm', '110 mm'] }
+	}
+];
+
+const varillas = [
+	{
+		title: 'Varilla corrugada 3/8"',
+		imageUrl: '/images/varilla.svg',
+		description: 'Varilla corrugada para refuerzo de concreto, alta adherencia.',
+		specs: { espesor: 'Ø 9.5 mm', medidas: ['6 m', '12 m'] }
+	}
+];
+
+const perfiles = [
+	{
+		title: 'Perfil U',
+		imageUrl: '/images/perfil-u.svg',
+		description: 'Perfiles estructurales en diferentes medidas para marcos y soportes.',
+		specs: { espesor: '1.5 mm - 6 mm', medidas: ['20x40 mm', '40x80 mm', '60x120 mm'] }
+	},
+	{
+		title: 'Perfil C',
+		imageUrl: '/images/perfil-c.svg',
+		description: 'Perfil C para estructuras ligeras y montaje de paneles.',
+		specs: { espesor: '1.5 mm - 4 mm', medidas: ['50 mm', '75 mm', '100 mm'] }
+	}
+];
+---
+
+<Layout>
+	<main class="w-full bg-white">
+		<div class="max-w-6xl mx-auto px-4 py-12">
+			<header class="text-center mb-8">
+				<h1 class="text-3xl md:text-4xl font-bold text-[#292929]">Catálogo de productos</h1>
+				<p class="text-sm md:text-base text-[#545454] mt-2">Encuentra especificaciones y medidas de láminas, tuberías, varillas y perfiles.</p>
+			</header>
+
+			<CatalogSection id="laminas" title="Láminas" items={laminas} />
+			<CatalogSection id="tuberias" title="Tuberías" items={tuberias} />
+			<CatalogSection id="varillas" title="Varillas" items={varillas} />
+			<CatalogSection id="perfiles" title="Perfiles" items={perfiles} />
+
+			<div class="mt-12 text-center text-sm text-[#6b7280]">
+				<p>¿Necesitas especificaciones adicionales o cotización? Contáctanos y te asesoramos.</p>
+			</div>
+		</div>
+	</main>
+</Layout>
