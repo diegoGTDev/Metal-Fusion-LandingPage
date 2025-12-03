@@ -1,0 +1,48 @@
+---
+const { title, imageUrl, description, specs } = Astro.props;
+---
+
+<article class="bg-white shadow-sm rounded-2xl border border-gray-100 overflow-hidden transition hover:shadow-md p-4 md:p-6 flex flex-col md:flex-row gap-4 items-stretch h-full">
+	<div class="w-full md:w-44 h-36 md:h-44 bg-white rounded-lg flex items-center justify-center overflow-hidden flex-shrink-0 shadow-sm">
+		<img src={imageUrl ?? '/MetalFusionFavicon.svg'} alt={title ? `${title} imagen` : 'Imagen del producto'} class="w-full h-full object-contain p-2" loading="lazy" />
+	</div>
+
+	<div class="flex-1 min-w-0 flex flex-col justify-between">
+		<div>
+			<h3 class="text-lg md:text-xl font-extrabold text-[#111827] leading-tight mb-2">{title}</h3>
+			<p class="text-sm text-gray-600 mt-1 md:mt-2">{description}</p>
+		</div>
+
+		{specs && (
+			<div class="mt-3 text-sm text-gray-700">
+				<div class="overflow-x-auto">
+					<table class="w-full text-left">
+						<tbody>
+							{specs.espesor && (
+								<tr>
+									<th class="pr-3 align-top w-28 text-xs text-gray-500">Espesor</th>
+									<td class="text-sm">{specs.espesor}</td>
+								</tr>
+							)}
+
+							{specs.medidas && (
+								<tr>
+									<th class="pr-3 align-top w-28 text-xs text-gray-500">Medidas</th>
+									<td class="text-sm">{Array.isArray(specs.medidas) ? specs.medidas.join(', ') : specs.medidas}</td>
+								</tr>
+							)}
+
+							{specs.descripcionCorta && (
+								<tr>
+									<th class="pr-3 align-top w-28 text-xs text-gray-500">Nota</th>
+									<td class="text-sm">{specs.descripcionCorta}</td>
+								</tr>
+							)}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		)}
+	</div>
+</article>
+
