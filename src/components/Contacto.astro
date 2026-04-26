@@ -1,0 +1,104 @@
+---
+
+---
+
+<section
+  id="contacto"
+  class="flex flex-col w-full h-fit py-12 lg:py-20 bg-white"
+>
+  <div
+    class="flex flex-col justify-center items-center w-full px-4 sm:px-6 lg:px-10 gap-6"
+  >
+    <div class="max-w-3xl w-full text-center">
+      <h2
+        class="lg:text-4xl xl:text-6xl text-2xl sm:text-3xl text-[#C00000] font-bold leading-tight"
+      >
+        Contáctanos
+      </h2>
+      <p class="text-sm lg:text-lg w-full mt-4 text-gray-600">
+        ¿Tienes alguna duda o necesitas una cotización? Escríbenos y nuestro
+        equipo se pondrá en contacto contigo lo antes posible.
+      </p>
+    </div>
+
+    <div
+      class="max-w-3xl w-full mt-8 bg-gray-50 p-6 sm:p-10 rounded-2xl shadow-xl border border-gray-100"
+    >
+      <!-- Formulario conectado a Formspree (reemplazar la URL de action) -->
+      <form
+        action="https://formspree.io/f/TU_ID_AQUI"
+        method="POST"
+        class="flex flex-col gap-6"
+      >
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="flex flex-col gap-2">
+            <label for="nombre" class="font-semibold text-sm text-gray-700"
+              >Nombre Completo</label
+            >
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              required
+              placeholder="Ej. Juan Pérez"
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#C00000] focus:border-transparent transition duration-200"
+            />
+          </div>
+          <div class="flex flex-col gap-2">
+            <label for="telefono" class="font-semibold text-sm text-gray-700"
+              >Teléfono (Opcional)</label
+            >
+            <input
+              type="tel"
+              id="telefono"
+              name="telefono"
+              placeholder="Ej. +502 1234 5678"
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#C00000] focus:border-transparent transition duration-200"
+            />
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <label for="correo" class="font-semibold text-sm text-gray-700"
+            >Correo Electrónico</label
+          >
+          <input
+            type="email"
+            id="correo"
+            name="correo"
+            required
+            placeholder="Ej. juan@correo.com"
+            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#C00000] focus:border-transparent transition duration-200"
+          />
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <label for="mensaje" class="font-semibold text-sm text-gray-700"
+            >Mensaje o Cotización</label
+          >
+          <textarea
+            id="mensaje"
+            name="mensaje"
+            rows="5"
+            required
+            placeholder="Escribe tu mensaje, solicitud de cotización o dudas aquí..."
+            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#C00000] focus:border-transparent transition duration-200 resize-none"
+          ></textarea>
+        </div>
+
+        <!-- Campo honeypot oculto para evitar spam (Formspree) -->
+        <input type="hidden" name="_gotcha" style="display:none !important" />
+
+        <!-- Redirección de éxito (Opcional, si quieres que redirija al home) -->
+        <!-- <input type="hidden" name="_next" value="https://metal-fusion-gt.com/"> -->
+
+        <button
+          type="submit"
+          class="mt-4 w-full py-4 px-6 bg-[#C00000] hover:bg-red-800 text-white font-bold text-lg rounded-xl shadow-md transition duration-300 transform hover:-translate-y-1"
+        >
+          Enviar Mensaje
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
