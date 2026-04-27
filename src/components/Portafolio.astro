@@ -1,0 +1,39 @@
+---
+import PortafolioCard from "./cards/PortafolioCard.astro";
+const trabajos = [
+  {
+    title: "Trabajo 1",
+    description: "Descripcion 1",
+    imageUrl: "/images/portafolio-1.webp",
+  },
+
+  {
+    title: "Trabajo 2",
+    description: "Descripcion 2",
+    imageUrl: "/images/portafolio-2.webp",
+  },
+];
+---
+
+<section
+  id="portafolio"
+  class="bg-white md:py-16 lg:py-25 px-4 md:px-8 text-center h-screen min-h-screen py-12 content-center"
+>
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-[#292929] mb-8">
+      El fruto de nuestros productos
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-stretch">
+      {
+        trabajos.map((trabajo) => (
+          <PortafolioCard
+            title={trabajo.title}
+            description={trabajo.description}
+            imageUrl={trabajo.imageUrl}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>
