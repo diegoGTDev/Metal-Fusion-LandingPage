@@ -1,0 +1,40 @@
+---
+import PortafolioCard from "./cards/PortafolioCard.astro";
+const trabajos = [
+  {
+    title: "Establo para ganadería",
+    description:
+      "Estructura metálica para establo para ganadería. Cuenta con los mejores materiales y acabados de alta calidad para garantizar la seguridad y comodidad de los animales.",
+    imageUrl: "/images/portafolio-1.webp",
+  },
+  {
+    title: "Potrero",
+    description:
+      "Estructura metálica para potrero para ganado. Cuenta con paredes de lámina troquelada y techo traslucido para permitir el paso de luz solar.",
+    imageUrl: "/images/portafolio-2.webp",
+  },
+];
+---
+
+<section
+  id="portafolio"
+  class="bg-white px-4 md:px-8 text-center min-h-screen py-16 lg:py-24 flex items-center justify-center"
+>
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-[#292929] mb-8">
+      El fruto de nuestros productos
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-stretch">
+      {
+        trabajos.map((trabajo) => (
+          <PortafolioCard
+            title={trabajo.title}
+            description={trabajo.description}
+            imageUrl={trabajo.imageUrl}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>
