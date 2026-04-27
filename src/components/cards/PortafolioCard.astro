@@ -17,9 +17,10 @@ const { title, description, imageUrl } = Astro.props;
     >
     </div>
     <img
-      class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110"
+      class="w-full h-full object-cover object-[50%_80%] transition-transform duration-700 ease-out group-hover:scale-110 bg-top"
       src={imageUrl}
       alt={title}
+      loading="lazy"
     />
   </div>
 
