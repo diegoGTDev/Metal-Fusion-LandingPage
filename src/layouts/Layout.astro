@@ -56,7 +56,7 @@ import "../styles/global.css";
       rel="stylesheet"
     />
     <title>Metal Fusion - Fuerza y calidad en cada pieza</title>
-    <script type="application/ld+json" is:inline>
+    <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "HardwareStore",
@@ -79,4 +79,16 @@ import "../styles/global.css";
   <body>
     <slot />
   </body>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TSFXY9ZWFP"
+  ></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-TSFXY9ZWFP");
+  </script>
 </html>
