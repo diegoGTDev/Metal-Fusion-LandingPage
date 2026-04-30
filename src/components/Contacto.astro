@@ -6,13 +6,10 @@
   id="contacto"
   class="flex items-center justify-center w-full min-h-screen py-12 lg:py-0 bg-white"
 >
-  <div
-    class="flex flex-col lg:flex-row max-w-7xl w-full px-4 sm:px-6 lg:px-10 gap-10 lg:gap-16"
-  >
+  <div class="flex flex-col lg:flex-row max-w-7xl w-full px-4 sm:px-6 lg:px-10 gap-10 lg:gap-16">
+    
     <!-- Lado Izquierdo: Textos e Información -->
-    <div
-      class="flex flex-col justify-center w-full lg:w-5/12 text-center lg:text-left"
-    >
+    <div class="flex flex-col justify-center w-full lg:w-5/12 text-center lg:text-left">
       <h2
         class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-[#C00000] font-bold leading-tight"
       >
@@ -20,115 +17,155 @@
       </h2>
       <p class="text-base lg:text-lg w-full mt-4 text-gray-600">
         ¿Tienes alguna duda o necesitas una cotización? Escríbenos y nuestro
-        equipo se pondrá en contacto contigo lo antes posible para darte la
-        mejor solución en materiales y herramientas.
+        equipo se pondrá en contacto contigo lo antes posible para darte la mejor solución en materiales y herramientas.
       </p>
-
-      <!-- Pequeño adorno o información extra (Opcional) -->
+      
       <div class="hidden lg:flex flex-col gap-4 mt-8">
         <div class="flex items-center gap-3 text-gray-700">
-          <div
-            class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center text-[#C00000]"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
-              ></path>
+          <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center text-[#C00000]">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
             </svg>
           </div>
           <div>
             <p class="font-bold text-sm">Respuesta rápida</p>
-            <p class="text-xs text-gray-500">
-              Respondemos en menos de 24 horas
-            </p>
+            <p class="text-xs text-gray-500">Respondemos en menos de 24 horas</p>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Lado Derecho: Formulario -->
-    <div
-      class="w-full lg:w-7/12 bg-gray-50 p-6 sm:p-10 rounded-2xl shadow-xl border border-gray-100"
-    >
-      <form
-        action="https://formspree.io/f/TU_ID_AQUI"
-        method="POST"
-        class="flex flex-col gap-5 sm:gap-6"
-      >
+    <div class="w-full lg:w-7/12 bg-gray-50 p-6 sm:p-10 rounded-2xl shadow-xl border border-gray-100">
+      
+      <!-- Mensaje de éxito (oculto por defecto) -->
+      <div id="form-success" class="hidden flex-col items-center justify-center text-center gap-4 py-10">
+        <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8 text-green-600">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-800">¡Mensaje enviado!</h3>
+        <p class="text-gray-500">Gracias por contactarnos. Nos pondremos en contacto contigo pronto.</p>
+        <button id="form-reset" class="mt-2 px-6 py-2 border border-[#C00000] text-[#C00000] rounded-lg font-semibold hover:bg-red-50 transition duration-200">
+          Enviar otro mensaje
+        </button>
+      </div>
+
+      <!-- Mensaje de error (oculto por defecto) -->
+      <div id="form-error" class="hidden mb-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm"></div>
+
+      <form id="contact-form" class="flex flex-col gap-5 sm:gap-6">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
           <div class="flex flex-col gap-1 sm:gap-2">
-            <label for="nombre" class="font-semibold text-sm text-gray-700"
-              >Nombre Completo</label
-            >
+            <label for="nombre" class="font-semibold text-sm text-gray-700">Nombre Completo</label>
             <input
               type="text"
               id="nombre"
               name="nombre"
               required
               placeholder="Ej. Juan Pérez"
-              class="w-full text-black px-4 py-3 text-sm sm:text-base rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#C00000] focus:border-transparent transition duration-200 bg-white"
+              class="w-full px-4 py-3 text-sm sm:text-base rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#C00000] focus:border-transparent transition duration-200 bg-white"
             />
           </div>
           <div class="flex flex-col gap-1 sm:gap-2">
-            <label for="telefono" class="font-semibold text-sm text-gray-700"
-              >Teléfono (Opcional)</label
-            >
+            <label for="telefono" class="font-semibold text-sm text-gray-700">Teléfono (Opcional)</label>
             <input
               type="tel"
               id="telefono"
               name="telefono"
               placeholder="Ej. +502 1234 5678"
-              class="w-full text-black px-4 py-3 text-sm sm:text-base rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#C00000] focus:border-transparent transition duration-200 bg-white"
+              class="w-full px-4 py-3 text-sm sm:text-base rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#C00000] focus:border-transparent transition duration-200 bg-white"
             />
           </div>
         </div>
 
         <div class="flex flex-col gap-1 sm:gap-2">
-          <label for="correo" class="font-semibold text-sm text-gray-700"
-            >Correo Electrónico</label
-          >
+          <label for="correo" class="font-semibold text-sm text-gray-700">Correo Electrónico</label>
           <input
             type="email"
             id="correo"
             name="correo"
             required
             placeholder="Ej. juan@correo.com"
-            class="w-full text-black px-4 py-3 text-sm sm:text-base rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#C00000] focus:border-transparent transition duration-200 bg-white"
+            class="w-full px-4 py-3 text-sm sm:text-base rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#C00000] focus:border-transparent transition duration-200 bg-white"
           />
         </div>
 
         <div class="flex flex-col gap-1 sm:gap-2">
-          <label for="mensaje" class="font-semibold text-sm text-gray-700"
-            >Mensaje o Cotización</label
-          >
+          <label for="mensaje" class="font-semibold text-sm text-gray-700">Mensaje o Cotización</label>
           <textarea
             id="mensaje"
             name="mensaje"
             rows="4"
             required
             placeholder="Escribe tu mensaje, solicitud de cotización o dudas aquí..."
-            class="w-full text-black px-4 py-3 text-sm sm:text-base rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#C00000] focus:border-transparent transition duration-200 resize-none bg-white"
+            class="w-full px-4 py-3 text-sm sm:text-base rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#C00000] focus:border-transparent transition duration-200 resize-none bg-white"
           ></textarea>
         </div>
 
-        <input type="hidden" name="_gotcha" style="display:none !important" />
-
-        <a
-          href="mailto:Metalfusiongt@gmail.com"
-          class="mt-2 sm:mt-4 w-full py-3 sm:py-4 px-6 bg-[#C00000] hover:bg-red-800 text-white font-bold text-base sm:text-lg rounded-xl shadow-md transition duration-300 transform hover:-translate-y-1 text-center"
+        <button
+          id="submit-btn"
+          type="submit"
+          class="mt-2 sm:mt-4 w-full py-3 sm:py-4 px-6 bg-[#C00000] hover:bg-red-800 text-white font-bold text-base sm:text-lg rounded-xl shadow-md transition duration-300 transform hover:-translate-y-1 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
         >
-          Enviar Mensaje
-        </a>
+          <span id="btn-text">Enviar Mensaje</span>
+          <span id="btn-loading" class="hidden">Enviando...</span>
+        </button>
       </form>
     </div>
   </div>
 </section>
+
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const successDiv = document.getElementById("form-success") as HTMLDivElement;
+  const errorDiv = document.getElementById("form-error") as HTMLDivElement;
+  const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement;
+  const btnText = document.getElementById("btn-text") as HTMLSpanElement;
+  const btnLoading = document.getElementById("btn-loading") as HTMLSpanElement;
+  const resetBtn = document.getElementById("form-reset") as HTMLButtonElement;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    
+    // Mostrar estado de carga
+    submitBtn.disabled = true;
+    btnText.classList.add("hidden");
+    btnLoading.classList.remove("hidden");
+    errorDiv.classList.add("hidden");
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        form.classList.add("hidden");
+        successDiv.classList.remove("hidden");
+        successDiv.classList.add("flex");
+      } else {
+        throw new Error(result.error || "Error desconocido.");
+      }
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : "Hubo un error al enviar. Intenta de nuevo.";
+      errorDiv.textContent = message;
+      errorDiv.classList.remove("hidden");
+    } finally {
+      submitBtn.disabled = false;
+      btnText.classList.remove("hidden");
+      btnLoading.classList.add("hidden");
+    }
+  });
+
+  resetBtn.addEventListener("click", () => {
+    form.reset();
+    form.classList.remove("hidden");
+    successDiv.classList.add("hidden");
+    successDiv.classList.remove("flex");
+  });
+</script>
