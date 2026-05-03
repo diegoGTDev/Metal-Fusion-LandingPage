@@ -6,10 +6,13 @@
   id="contacto"
   class="flex items-center justify-center w-full min-h-screen py-12 lg:py-0 bg-white"
 >
-  <div class="flex flex-col lg:flex-row max-w-7xl w-full px-4 sm:px-6 lg:px-10 gap-10 lg:gap-16">
-    
+  <div
+    class="flex flex-col lg:flex-row max-w-7xl w-full px-4 sm:px-6 lg:px-10 gap-10 lg:gap-16"
+  >
     <!-- Lado Izquierdo: Textos e Información -->
-    <div class="flex flex-col justify-center w-full lg:w-5/12 text-center lg:text-left">
+    <div
+      class="flex flex-col justify-center w-full lg:w-5/12 text-center lg:text-left"
+    >
       <h2
         class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-[#C00000] font-bold leading-tight"
       >
@@ -17,48 +20,94 @@
       </h2>
       <p class="text-base lg:text-lg w-full mt-4 text-gray-600">
         ¿Tienes alguna duda o necesitas una cotización? Escríbenos y nuestro
-        equipo se pondrá en contacto contigo lo antes posible para darte la mejor solución en materiales y herramientas.
+        equipo se pondrá en contacto contigo lo antes posible para darte la
+        mejor solución en materiales y herramientas.
       </p>
-      
+
       <div class="hidden lg:flex flex-col gap-4 mt-8">
         <div class="flex items-center gap-3 text-gray-700">
-          <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center text-[#C00000]">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+          <div
+            class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center text-[#C00000]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+              ></path>
             </svg>
           </div>
           <div>
             <p class="font-bold text-sm">Respuesta rápida</p>
-            <p class="text-xs text-gray-500">Respondemos en menos de 24 horas</p>
+            <p class="text-xs text-gray-500">
+              Respondemos en menos de 24 horas
+            </p>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Lado Derecho: Formulario -->
-    <div class="w-full lg:w-7/12 bg-gray-50 p-6 sm:p-10 rounded-2xl shadow-xl border border-gray-100">
-      
+    <div
+      class="w-full lg:w-7/12 bg-gray-50 p-6 sm:p-10 rounded-2xl shadow-xl border border-gray-100"
+    >
       <!-- Mensaje de éxito (oculto por defecto) -->
-      <div id="form-success" class="hidden flex-col items-center justify-center text-center gap-4 py-10">
-        <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8 text-green-600">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+      <div
+        id="form-success"
+        class="hidden flex-col items-center justify-center text-center gap-4 py-10"
+      >
+        <div
+          class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            class="w-8 h-8 text-green-600"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4.5 12.75l6 6 9-13.5"></path>
           </svg>
         </div>
         <h3 class="text-2xl font-bold text-gray-800">¡Mensaje enviado!</h3>
-        <p class="text-gray-500">Gracias por contactarnos. Nos pondremos en contacto contigo pronto.</p>
-        <button id="form-reset" class="mt-2 px-6 py-2 border border-[#C00000] text-[#C00000] rounded-lg font-semibold hover:bg-red-50 transition duration-200">
+        <p class="text-gray-500">
+          Gracias por contactarnos. Nos pondremos en contacto contigo pronto.
+        </p>
+        <button
+          id="form-reset"
+          class="mt-2 px-6 py-2 border border-[#C00000] text-[#C00000] rounded-lg font-semibold hover:bg-red-50 transition duration-200"
+        >
           Enviar otro mensaje
         </button>
       </div>
 
       <!-- Mensaje de error (oculto por defecto) -->
-      <div id="form-error" class="hidden mb-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm"></div>
+      <div
+        id="form-error"
+        class="hidden mb-4 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm"
+      >
+      </div>
 
-      <form id="contact-form" class="flex flex-col gap-5 sm:gap-6">
+      <form
+        id="contact-form"
+        class="flex flex-col gap-5 sm:gap-6 [&_input]:text-black [&_textarea]:text-black"
+      >
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
           <div class="flex flex-col gap-1 sm:gap-2">
-            <label for="nombre" class="font-semibold text-sm text-gray-700">Nombre Completo</label>
+            <label for="nombre" class="font-semibold text-sm text-gray-700"
+              >Nombre Completo</label
+            >
             <input
               type="text"
               id="nombre"
@@ -69,7 +118,9 @@
             />
           </div>
           <div class="flex flex-col gap-1 sm:gap-2">
-            <label for="telefono" class="font-semibold text-sm text-gray-700">Teléfono (Opcional)</label>
+            <label for="telefono" class="font-semibold text-sm text-gray-700"
+              >Teléfono (Opcional)</label
+            >
             <input
               type="tel"
               id="telefono"
@@ -81,7 +132,9 @@
         </div>
 
         <div class="flex flex-col gap-1 sm:gap-2">
-          <label for="correo" class="font-semibold text-sm text-gray-700">Correo Electrónico</label>
+          <label for="correo" class="font-semibold text-sm text-gray-700"
+            >Correo Electrónico</label
+          >
           <input
             type="email"
             id="correo"
@@ -93,7 +146,9 @@
         </div>
 
         <div class="flex flex-col gap-1 sm:gap-2">
-          <label for="mensaje" class="font-semibold text-sm text-gray-700">Mensaje o Cotización</label>
+          <label for="mensaje" class="font-semibold text-sm text-gray-700"
+            >Mensaje o Cotización</label
+          >
           <textarea
             id="mensaje"
             name="mensaje"
@@ -128,7 +183,7 @@
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    
+
     // Mostrar estado de carga
     submitBtn.disabled = true;
     btnText.classList.add("hidden");
@@ -152,7 +207,10 @@
         throw new Error(result.error || "Error desconocido.");
       }
     } catch (error: unknown) {
-      const message = error instanceof Error ? error.message : "Hubo un error al enviar. Intenta de nuevo.";
+      const message =
+        error instanceof Error
+          ? error.message
+          : "Hubo un error al enviar. Intenta de nuevo.";
       errorDiv.textContent = message;
       errorDiv.classList.remove("hidden");
     } finally {
