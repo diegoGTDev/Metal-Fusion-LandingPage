@@ -24,6 +24,7 @@ const { title, description, imageUrl } = Astro.props;
   <div
     id="info"
     class="text-center p-5 absolute inset-0 z-20 flex items-center justify-center lg:opacity-0 transition-all duration-500 ease-in-out group-hover:opacity-100 lg:group-hover:bg-black/60 bg-black/60 group-[.is-visible]:opacity-100 group-[.is-visible]:bg-black/60"
+    class="text-center p-5 absolute inset-0 z-20 flex items-center justify-center lg:opacity-0 transition-all duration-500 ease-in-out group-hover:opacity-100 lg:group-hover:bg-black/60 bg-black/60 group-[.is-visible]:opacity-100 group-[.is-visible]:bg-black/60"
   >
     <div
       class="flex flex-col items-center justify-center text-white px-6 w-[280px] lg:skew-x-[15deg] opacity-0 translate-y-4 transition-all duration-500 delay-100 ease-out group-hover:opacity-100 group-hover:translate-y-0 group-[.is-visible]:opacity-100 group-[.is-visible]:translate-y-0"
@@ -41,6 +42,29 @@ const { title, description, imageUrl } = Astro.props;
 </div>
 
 <script>
+  const cards = document.querySelectorAll("[data-card]");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          console.log("es visible");
+        } else {
+          // Opcional: remover la clase al salir del viewport
+          entry.target.classList.remove("is-visible");
+        }
+      });
+    },
+    {
+      threshold: 0.4, // La card debe estar 40% visible para activarse
+    },
+  );
+
+  cards.forEach((card) => observer.observe(card));
+</script>
+
+<script is:inline>
   const cards = document.querySelectorAll("[data-card]");
 
   const observer = new IntersectionObserver(
