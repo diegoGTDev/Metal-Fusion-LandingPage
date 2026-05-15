@@ -1,22 +1,46 @@
 import type { APIRoute } from "astro";
 import nodemailer from "nodemailer";
+import { contactSchema } from "../../lib/contactSchema";
+import DOMPurify from "isomorphic-dompurify";
 
 export const POST: APIRoute = async ({ request }) => {
   try {
     const data = await request.formData();
 
-    const nombre = data.get("nombre")?.toString().trim();
-    const correo = data.get("correo")?.toString().trim();
-    const telefono = data.get("telefono")?.toString().trim() || "No proporcionado";
-    const mensaje = data.get("mensaje")?.toString().trim();
+    const nombre = data.get("nombre")?.toString().trim() || "";
+    const correo = data.get("correo")?.toString().trim() || "";
+    const telefono = data.get("telefono")?.toString().trim() || "";
+    const mensaje = data.get("mensaje")?.toString().trim() || "";
 
-    // Validación básica
-    if (!nombre || !correo || !mensaje) {
+    // Validación con Zod
+    const validationResult = contactSchema.safeParse({
+      nombre,
+      correo,
+      telefono,
+      mensaje,
+    });
+
+    if (!validationResult.success) {
+      const errors = validationResult.error.issues
+        .map((issue: any) => `${issue.path.join(".")}: ${issue.message}`)
+        .join("; ");
+      
       return new Response(
-        JSON.stringify({ success: false, error: "Faltan campos requeridos." }),
+        JSON.stringify({ success: false, error: errors }),
         { status: 400, headers: { "Content-Type": "application/json" } }
       );
     }
+
+    const validatedData = validationResult.data;
+
+    // Sanitizar inputs para prevenir XSS
+    const sanitizedNombre = DOMPurify.sanitize(validatedData.nombre, {
+      ALLOWED_TAGS: [],
+    });
+    const sanitizedMensaje = DOMPurify.sanitize(validatedData.mensaje, {
+      ALLOWED_TAGS: [],
+    });
+    const displayTelefono = validatedData.telefono || "No proporcionado";
 
     // Configuración del transporter de Gmail
     const transporter = nodemailer.createTransport({
@@ -31,8 +55,8 @@ export const POST: APIRoute = async ({ request }) => {
     await transporter.sendMail({
       from: `"Metal Fusion Web" <${import.meta.env.GMAIL_USER}>`,
       to: import.meta.env.GMAIL_USER,
-      replyTo: correo,
-      subject: `Nuevo mensaje de contacto de: ${nombre}`,
+      replyTo: validatedData.correo,
+      subject: `Nuevo mensaje de contacto de: ${sanitizedNombre}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden;">
           <div style="background-color: #C00000; padding: 24px; text-align: center;">
@@ -43,19 +67,19 @@ export const POST: APIRoute = async ({ request }) => {
             <table style="width: 100%; border-collapse: collapse;">
               <tr>
                 <td style="padding: 12px; font-weight: bold; color: #374151; width: 140px;">Nombre:</td>
-                <td style="padding: 12px; color: #111827;">${nombre}</td>
+                <td style="padding: 12px; color: #111827;">${sanitizedNombre}</td>
               </tr>
               <tr style="background-color: #f3f4f6;">
                 <td style="padding: 12px; font-weight: bold; color: #374151;">Correo:</td>
-                <td style="padding: 12px; color: #111827;"><a href="mailto:${correo}" style="color: #C00000;">${correo}</a></td>
+                <td style="padding: 12px; color: #111827;"><a href="mailto:${validatedData.correo}" style="color: #C00000;">${validatedData.correo}</a></td>
               </tr>
               <tr>
                 <td style="padding: 12px; font-weight: bold; color: #374151;">Teléfono:</td>
-                <td style="padding: 12px; color: #111827;">${telefono}</td>
+                <td style="padding: 12px; color: #111827;">${displayTelefono}</td>
               </tr>
               <tr style="background-color: #f3f4f6;">
                 <td style="padding: 12px; font-weight: bold; color: #374151; vertical-align: top;">Mensaje:</td>
-                <td style="padding: 12px; color: #111827; line-height: 1.6;">${mensaje.replace(/\n/g, "<br>")}</td>
+                <td style="padding: 12px; color: #111827; line-height: 1.6;">${sanitizedMensaje.replace(/\n/g, "<br>")}</td>
               </tr>
             </table>
           </div>
