@@ -181,17 +181,96 @@
   const btnLoading = document.getElementById("btn-loading") as HTMLSpanElement;
   const resetBtn = document.getElementById("form-reset") as HTMLButtonElement;
 
+  // Validación básica client-side
+  const validateEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validateNombre = (nombre: string): boolean => {
+    return nombre.length >= 2 && nombre.length <= 100;
+  };
+
+  const validateMensaje = (mensaje: string): boolean => {
+    return mensaje.length >= 10 && mensaje.length <= 5000;
+  };
+
+  const validatePhone = (telefono: string): boolean => {
+    if (!telefono) return true; // Opcional
+    const digitos = telefono.replace(/\D/g, "");
+    return digitos.length >= 7;
+  };
+
+  const clearFieldErrors = () => {
+    const errorElements = form.querySelectorAll(".field-error");
+    errorElements.forEach((el) => el.remove());
+    const invalidFields = form.querySelectorAll(".border-red-500");
+    invalidFields.forEach((field) => {
+      field.classList.remove("border-red-500");
+      field.classList.add("border-gray-300");
+    });
+  };
+
+  const showFieldError = (fieldId: string, message: string) => {
+    const field = document.getElementById(fieldId) as HTMLInputElement;
+    const container = field.parentElement;
+
+    field.classList.add("border-red-500");
+    field.classList.remove("border-gray-300");
+
+    const errorEl = document.createElement("p");
+    errorEl.className = "field-error text-red-600 text-xs mt-1";
+    errorEl.textContent = message;
+    container?.appendChild(errorEl);
+  };
+
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+    clearFieldErrors();
+    errorDiv.classList.add("hidden");
+
+    // Validación client-side
+    const formData = new FormData(form);
+    const nombre = (formData.get("nombre") as string)?.trim() || "";
+    const correo = (formData.get("correo") as string)?.trim() || "";
+    const telefono = (formData.get("telefono") as string)?.trim() || "";
+    const mensaje = (formData.get("mensaje") as string)?.trim() || "";
+
+    let hasErrors = false;
+
+    if (!validateNombre(nombre)) {
+      showFieldError("nombre", "El nombre debe tener entre 2 y 100 caracteres");
+      hasErrors = true;
+    }
+
+    if (!validateEmail(correo)) {
+      showFieldError("correo", "Por favor ingresa un correo válido");
+      hasErrors = true;
+    }
+
+    if (!validateMensaje(mensaje)) {
+      showFieldError(
+        "mensaje",
+        "El mensaje debe tener entre 10 y 5000 caracteres"
+      );
+      hasErrors = true;
+    }
+
+    if (telefono && !validatePhone(telefono)) {
+      showFieldError("telefono", "El teléfono debe contener al menos 7 dígitos");
+      hasErrors = true;
+    }
+
+    if (hasErrors) {
+      return;
+    }
 
     // Mostrar estado de carga
     submitBtn.disabled = true;
     btnText.classList.add("hidden");
     btnLoading.classList.remove("hidden");
-    errorDiv.classList.add("hidden");
 
     try {
-      const formData = new FormData(form);
       const response = await fetch("/api/send-email", {
         method: "POST",
         body: formData,
@@ -222,6 +301,7 @@
 
   resetBtn.addEventListener("click", () => {
     form.reset();
+    clearFieldErrors();
     form.classList.remove("hidden");
     successDiv.classList.add("hidden");
     successDiv.classList.remove("flex");
